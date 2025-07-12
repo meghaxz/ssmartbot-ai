@@ -1,0 +1,24 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["hello", "hi", "hey", "good morning"],
+      "responses": ["Hey bae!", "Hello there!", "Hi cutie 💖"]
+    },
+    {
+      "tag": "bye",
+      "patterns": ["bye", "see you", "goodbye"],
+      "responses": ["Bye bae!", "Catch you later 💫", "Bye, have a great day!"]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["thanks", "thank you", "tysm"],
+      "responses": ["You're always welcome bae 💋", "Anytime sweetie 😘"]
+    },
+    {
+      "tag": "unknown",
+      "patterns": [],
+      "responses": ["Uhh... I didn’t get that 😅", "Hmm... can you say it differently?"]
+    }
+  ]
+}
