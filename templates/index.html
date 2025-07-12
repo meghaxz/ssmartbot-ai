@@ -1,1 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SmartBot 💬</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="chatbox">
+    <div id="chat"></div>
+    <form id="chat-form">
+      <input type="text" id="msg" placeholder="Type your message..." autocomplete="off" required>
+      <button>Send</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("chat-form");
+    const chat = document.getElementById("chat");
+
+    form.onsubmit = async (e) => {
+      e.preventDefault();
+      const msg = document.getElementById("msg").value;
+      chat.innerHTML += `<div class='user'>You: ${msg}</div>`;
+      document.getElementById("msg").value = "";
+
+      const res = await fetch("/get", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `msg=${msg}`
+      });
+      const data = await res.json();
+      chat.innerHTML += `<div class='bot'>Bot: ${data.reply}</div>`;
+    };
+  </script>
+</body>
+</html>
 
